@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Prjt_Mgnt</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}" />
+		<link rel="icon" type="image/x-icon" href="{{url_for('static', filename='images/favicon/fav.ico')}}">
+		<noscript><link rel="stylesheet" href="{{url_for('static', filename='css/noscript.css')}}" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="/"><strong>PRJT_MGNT</strong></a></h1>
+						<nav>
+							<ul>
+								<li><a href="#footer" class="icon solid fa-info-circle">Update</a></li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+						{{project.prjt_name}}<br>
+						{{project.prjt_desc}}<br>
+						{{project.prjt_per}}<br>
+						{{project.prjt_team}}<br>
+						{{project.prjt_guide}}<br>
+						{{project.prjt_git}}<br>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer" class="panel">
+						<div class="inner split">
+							<div>
+								<section>
+									<h2>PRJT_MGNT</h2>
+									<p>An easy and simplified method to manage, view and track all of your depatment projects.
+										<br>Created by:
+										<br>Abhishek S A (1DS20AI003)
+										<br>Puneeth P (1DS20AI043)
+										<br>Niranthar M (1DS20AI035)
+										<br>Charan S (1DS20AI022)
+									</p>
+								</section>
+								<section>
+									<h2>Follow us on ...</h2>
+									<ul class="icons">
+										<li><a href="https://github.com/Prjt-Mgnt" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="https://www.instagram.com/aimldeptdsce/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="https://www.linkedin.com/company/aimldeptdsce/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+									</ul>
+								</section>
+								<p class="copyright">
+									&copy; PRJT_MGNT AIML,DSCE.
+								</p>
+							</div>
+							<div>
+								<section>
+									<h2>Fill Details</h2>
+									<form method="POST" action="/update/{{project.id}}">
+										<div class="fields">
+											<div class="field">
+												<input type="text" name="prjt_token" id="prjt_token" placeholder="Project token" />
+											</div>
+											<div class="field half">
+												<input type="text" name="prjt_name" id="prjt_name" value="{{project.prjt_name}}" />
+											</div>
+											<div class="field half">
+												<input type="text" name="prjt_per" id="prjt_per" value="{{project.prjt_per}}" />
+											</div>
+											<div class="field">
+												<textarea name="prjt_desc" id="prjt_desc" rows="5" value="{{project.prjt_desc}}"></textarea>
+											</div>
+											<div class="field half">
+												<input type="text" name="member_1" id="member_1" placeholder="Member 1 Name" />
+											</div>
+											<div class="field half">
+												<input type="text" name="usn_1" id="usn_1" placeholder="Member 1 USN" />
+											</div>
+											<div class="field half">
+												<input type="text" name="member_2" id="member_2" placeholder="Member 2 Name" />
+											</div>
+											<div class="field half">
+												<input type="text" name="usn_2" id="usn_2" placeholder="Member 2 USN" />
+											</div>
+											<div class="field half">
+												<input type="text" name="member_3" id="member_3" placeholder="Member 3 Name" />
+											</div>
+											<div class="field half">
+												<input type="text" name="usn_3" id="usn_3" placeholder="Member 3 USN" />
+											</div>
+											<div class="field half">
+												<input type="text" name="member_4" id="member_4" placeholder="Member 4 Name" />
+											</div>
+											<div class="field half">
+												<input type="text" name="usn_4" id="usn_4" placeholder="Member 4 USN" />
+											</div>
+											<div class="field half">
+												<input type="text" name="prjt_guide" id="prjt_guide" value="{{project.prjt_guide}}" />
+											</div>
+											<div class="field half">
+												<input type="text" name="prjt_git" id="prjt_git" value="{{project.prjt_git}}" />
+											</div>
+										</div>
+										<ul class="actions">
+											<li><input type="submit" value="Update" class="primary" /></li>
+											<li><input type="reset" value="Reset" /></li>
+										</ul>
+										</form>
+										<form method="POST" action="/delete/{{project.id}}">
+											<div class="fields">
+												<div class="field">
+													<input type="text" name="prjt_token" id="prjt_token" placeholder="Project token" />
+												</div>
+											</div>
+											<ul class="actions">
+												<li><input type="submit" value="Delete" class="primary" /></li>
+											</ul>
+										</form>
+								</section>
+							</div>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+			<script src="{{url_for('static', filename='js/jquery.poptrox.min.js')}}"></script>
+			<script src="{{url_for('static', filename='js/browser.min.js')}}"></script>
+			<script src="{{url_for('static', filename='js/breakpoints.min.js')}}"></script>
+			<script src="{{url_for('static', filename='js/util.js')}}"></script>
+			<script src="{{url_for('static', filename='js/main.js')}}"></script>
+
+	</body>
+</html>
